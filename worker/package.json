@@ -1,0 +1,14 @@
+{
+  "name": "url-shortener-worker",
+  "version": "1.0.0",
+  "description": "Asynchronous analytics worker consuming from Redis Streams",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1",
+    "pg": "^8.11.5"
+  }
+}

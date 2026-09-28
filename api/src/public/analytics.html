@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Analytics Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back-link">&larr; Back to Shortener</a>
+
+    <header>
+      <h1>URL Analytics</h1>
+      <p id="shortCodeDisplay">Loading analytics data...</p>
+    </header>
+
+    <main class="card">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="totalClicks">0</div>
+          <div class="stat-label">Total Clicks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="activeHours">0</div>
+          <div class="stat-label">Active Hours</div>
+        </div>
+      </div>
+
+      <div class="chart-wrapper">
+        <!-- data-testid="analytics-chart" required by contract requirement 15 -->
+        <canvas id="analyticsChart" data-testid="analytics-chart"></canvas>
+        <div id="chartFallback" style="display: none; padding: 2rem; text-align: center; color: var(--text-muted);">
+          No click data recorded yet for this URL.
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.8125rem; color: var(--text-muted);" id="lastUpdated">Updated just now</span>
+        <button type="button" class="copy-btn" id="refreshBtn">Refresh Data</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="/analytics.js"></script>
+</body>
+</html>

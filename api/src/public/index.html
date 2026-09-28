@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High-Throughput Distributed URL Shortener</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Distributed URL Shortener</h1>
+      <p>High-throughput URL shortening with Redis Caching, Redis Streams & Snowflake/Hash ID generation</p>
+    </header>
+
+    <main class="card">
+      <form id="shortenForm">
+        <div class="form-group">
+          <label for="urlInput">Destination URL</label>
+          <input 
+            type="url" 
+            id="urlInput" 
+            data-testid="url-input" 
+            placeholder="https://example.com/very/long/url/to/shorten" 
+            required 
+          />
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="strategySelect">ID Generation Strategy</label>
+            <select id="strategySelect" data-testid="strategy-select">
+              <option value="hash">Hash-based (MD5 + Base62)</option>
+              <option value="snowflake">Snowflake (Distributed 64-bit)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="expiresSelect">Expiration (Optional)</label>
+            <select id="expiresSelect">
+              <option value="">Never (Permanent)</option>
+              <option value="1h">1 Hour</option>
+              <option value="24h">24 Hours</option>
+              <option value="7d">7 Days</option>
+              <option value="30d">30 Days</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="primary-btn" id="shortenBtn" data-testid="shorten-button">
+          Shorten URL
+        </button>
+
+        <div id="formError" class="error-message" style="display: none;"></div>
+      </form>
+
+      <div class="result-container">
+        <!-- Must be initially empty as specified by requirement 14 -->
+        <div id="resultDisplay" data-testid="result-display"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
