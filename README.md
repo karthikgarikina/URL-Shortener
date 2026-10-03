@@ -121,6 +121,11 @@ url_shortener_worker   url-shortener-worker   Up (healthy)              0.0.0.0:
 * **Analytics Dashboard**: Open `http://localhost:3000/analytics/<shortCode>` (a link is automatically generated upon creating any short URL).
 
 ---
+## Video Demo
+
+https://youtu.be/Ej5iu9Rrovk
+
+---
 
 ## Step-by-Step Verification Guide for All Requirements
 
